@@ -1,14 +1,14 @@
 #include "binary_trees.h"
-
 /**
- * binary_tree_is_full - Checks if a binary tree is full.
- * @tree: Pointer to the root node of the tree to check.
- * Return: 1 if the tree is full, 0 otherwise or if tree is NULL.
+ * binary_tree_is_full - function that says if a tree is full or not
+ * a tree is full if it has tow or none children
+ * @tree: tree to check
+ * Return: 1 if it is a full 0 if not
  */
 
 int binary_tree_is_full(const binary_tree_t *tree)
 {
-	int i = 0, j = 0;
+	int left = 0, right = 0;
 
 	if (tree == NULL)
 	{
@@ -16,23 +16,10 @@ int binary_tree_is_full(const binary_tree_t *tree)
 	}
 	else
 	{
-		if (tree->i && tree->j)
+		if (tree->left && tree->right)
 		{
-			i = binary_tree_is_full(tree->i);
-			j = binary_tree_is_full(tree->j);
-			if (i == 0 || j == 0)
-			{
-				return (0);
+			left = binary_tree_is_full(tree->left);
+			right = binary_tree_is_full(tree->right);
 			}
-			return (1);
-		}
-		else if (!tree->i && !tree->j)
-		{
-			return (1);
-		}
-		else
-		{
-			return (0);
-		}
 	}
 }
